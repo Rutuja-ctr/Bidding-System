@@ -1,0 +1,102 @@
+
+<?php
+session_start();
+require ("databaseConnection.php");
+// Query to retrieve data
+$sql = "SELECT * FROM `customer`";
+$result = mysqli_query($conn, $sql);
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+	integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+	integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+	crossorigin="anonymous"></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../Styles/style.css">
+<title>Admin Home</title>
+<style>
+</style>
+</head>
+
+<body>
+	<!--****************************************** navbar start ******************************************-->
+
+	<div class="container-fluid">
+		<div class="row">
+			<nav id="sidebar"
+				class="col-md-3 col-lg-2 d-md-block bg-black sidebar text-light">
+				<div class="position-sticky">
+					<h2 class="text-center">Spectrum arts</h2>
+					<ul class="nav flex-column border-1">
+						<li class=".0nav-item text-light"><a href="adminHome.php" class="nav-link">Home</a>
+						</li>
+						<li class="nav-item"><a href="#" class="nav-link">Customers</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">Products</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">Products</a></li>
+					</ul>
+				</div>
+			</nav>
+
+			<!-- Main content -->
+			<main id="content" class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col">
+							<h2 class="text-center mt-4 mb-4">View Customers</h2>
+							<div class="table-responsive">
+								<table class="table table-striped table-bordered">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>Name</th>
+											<th>Email</th>
+										</tr>
+									</thead>
+									<tbody>
+                                    <?php while ($row = mysqli_fetch_assoc($result)) {
+                                        echo "<tr>";
+                                        echo "<td>" . $row["Cust_Id"] . "</td>";
+                                        echo "<td>" . $row["Name"] . "</td>";
+                                        echo "<td>" . $row["Email"] . "</td>";
+                                        echo "</tr>";
+                                    }
+                                    ?>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+	<!-- **************************************************** footer start **************************************************** -->
+	<footer
+		class="container-fluid black-backgrouhnd fixed-bottom text-light border-top border-light">
+		<p class="text-center">© 2024 Spectrum Art - All Rights Reserved</p>
+	</footer>
+
+	<!-- **************************************************** footer end **************************************************** -->
+
+
+
+</body>
+
+</html>

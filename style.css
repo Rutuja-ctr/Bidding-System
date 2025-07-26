@@ -1,0 +1,46 @@
+.main-background {
+  background-image: url(../images/mainBackground.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+}
+
+.black-backgrouhnd {
+  background-color: black;
+}
+
+.artText {
+  font-family: "Dancing Script";
+}
+
+.transparent-background {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.cardImage {
+  height: 40%;
+}
+
+/* login page css */
+.form-control-borderless {
+  border: none;
+  border-bottom: 1px solid #ced4da; /* Color for bottom border */
+  border-radius: 0; /* Optional: Removes border radius */
+}
+
+/* admin home  */
+#sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Ensure sidebar appears above other content */
+  padding: 48px 0; /* Adjust padding to accommodate the navbar */
+  background-color: #f8f9fa; /* Sidebar background color */
+}
+
+/* Adjust content styles */
+#content {
+  margin-left: 250px; /* Adjust margin to accommodate the sidebar */
+  padding: 20px; /* Add padding for better visibility */
+}
